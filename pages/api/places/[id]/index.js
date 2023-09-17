@@ -5,10 +5,6 @@ export default async function handler(request, response) {
   await dbConnect();
   const { id } = request.query;
 
-  if (!id) {
-    return;
-  }
-
   if (request.method === "GET") {
     const place = await Place.findById(id);
     if (!place) {
